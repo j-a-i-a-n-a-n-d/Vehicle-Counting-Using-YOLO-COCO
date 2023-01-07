@@ -1,0 +1,7 @@
+test/
+yoloEnv/
+README2.md
+Yolov3_Vehicle_Coutning_Python_Dl/__pycache__
+*.weights
+*.avi
+*.mp4
