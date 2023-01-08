@@ -37,3 +37,4 @@ def parseCommandLineArguments():
     # python yolo_video.py --input inputVideos/highway.mp4 --output outputVideos/highwayOut.avi --yolo yolo-coco --confidence 0.3
     # python yolo_video.py -i inputVideos/highway.mp4 -o outputVideos/highwayOut.avi -y yolo-coco -c 0.7 -t 0.7
     # python yolo_video.py --input inputVideos/highway.mp4 --output outputVideos/highwayOut.avi --yolo yolo-coco
+    # python yolo_video.py --input inputVideos/thailandTraffic.mp4 --output outputVideos/thailand.avi --yolo yolo-coco --confidence 0.7 --threshold 0.2

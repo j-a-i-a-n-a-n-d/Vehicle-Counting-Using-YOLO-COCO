@@ -39,3 +39,8 @@ python yolo_video.py --input inputVideos/highway.mp4 --output outputVideos/highw
 - https://opencv-tutorial.readthedocs.io/en/latest/yolo/yolo.html
 
 - https://www.analyticsvidhya.com/blog/2021/06/implementation-of-yolov3-simplified/
+
+### For Running Cuda as a Backend
+
+- https://medium.com/geekculture/setup-opencv-dnn-module-with-cuda-backend-support-for-windows-7f1856691da3
+- https://techzizou.com/setup-opencv-dnn-cuda-module-for-linux/

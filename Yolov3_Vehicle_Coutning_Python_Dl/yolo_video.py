@@ -104,18 +104,10 @@ def count_vehicles(idxs, boxes, classIDs, vehicle_count, previous_frame_detectio
 
             centerX = x + (w//2)
             centerY = y + (h//2)
-
-            # When the detection is in the list of vehicles, AND
-            # it crosses the line AND
-            # the ID of the detection is not present in the vehicles
             if (LABELS[classIDs[i]] in list_of_vehicles):
                 current_detections[(centerX, centerY)] = vehicle_count
                 if (not boxInPreviousFrames(previous_frame_detections, (centerX, centerY, w, h), current_detections)):
                     vehicle_count += 1
-                    # vehicle_crossed_line_flag += True
-                # else: #ID assigning
-                    # Add the current detection mid-point of box to the list of detected items
-                # Get the ID corresponding to the current detection
 
                 ID = current_detections.get((centerX, centerY))
                 # If there are two detections having the same ID due to being too close,
@@ -168,9 +160,6 @@ while True:
     if not grabbed:
         break
 
-    # construct a blob from the input frame and then perform a forward
-    # pass of the YOLO object detector, giving us our bounding boxes
-    # and associated probabilities
     blob = cv2.dnn.blobFromImage(
         frame, 1 / 255.0, (inputWidth, inputHeight), swapRB=True, crop=False)  # 4d array
     net.setInput(blob)
@@ -190,11 +179,6 @@ while True:
             # filter out weak predictions by ensuring the detected
             # probability is greater than the minimum probability
             if confidence > preDefinedConfidence:
-                # scale the bounding box coordinates back relative to
-                # the size of the image, keeping in mind that YOLO
-                # actually returns the center (x, y)-coordinates of
-                # the bounding box followed by the boxes' width and
-                # height
                 box = detection[0:4] * \
                     np.array([video_width, video_height,
                               video_width, video_height])
@@ -214,15 +198,6 @@ while True:
                 confidences.append(float(confidence))
                 classIDs.append(classID)
 
-    # # Changing line color to green if a vehicle in the frame has crossed the line
-    # if vehicle_crossed_line_flag:
-    # 	cv2.line(frame, (x1_line, y1_line), (x2_line, y2_line), (0, 0xFF, 0), 2)
-    # # Changing line color to red if a vehicle in the frame has not crossed the line
-    # else:
-    # 	cv2.line(frame, (x1_line, y1_line), (x2_line, y2_line), (0, 0, 0xFF), 2)
-
-    # apply non-maxima suppression to suppress weak, overlapping
-    # bounding boxes
     idxs = cv2.dnn.NMSBoxes(
         boxes, confidences, preDefinedConfidence, preDefinedThreshold)
     # Draw detection box
