@@ -6,20 +6,30 @@ You Only Look Once (YOLO) is a CNN architecture for performing real-time object 
 
 ### Requirements for running the project
 
-python (>=3.6)
-openCV (Stable version)
-imutils
-sciPY
-numPY
+- python (>=3.6)
+
+- openCV (Stable version)
+
+- imutils
+
+- sciPY
+
+- numPY
+
+- weights file for the coco dataset
+
+```
+https://pjreddie.com/media/files/yolov3.weights
+```
 
 ### Runnning the Application
 
 ```
-python3 yolo_video.py --input inputVideos/highway.mp4 --output outputVideos/highwayOut.avi --yolo yolo-coco
+python yolo_video.py --input inputVideos/highway.mp4 --output outputVideos/highwayOut.avi --yolo yolo-coco
 ```
 
 ```
-python3 yolo_video.py --input inputVideos/highway.mp4 --output outputVideos/highwayOut.avi --yolo yolo-coco --confidence 0.3
+python yolo_video.py --input inputVideos/highway.mp4 --output outputVideos/highwayOut.avi --yolo yolo-coco --confidence 0.3
 ```
 
 ### Resources
